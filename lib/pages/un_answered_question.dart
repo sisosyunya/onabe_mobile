@@ -50,7 +50,7 @@ class UnAnsweredQuestionPage extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) =>
-                              AddAnswerPage(questionId: faq.id)));
+                              AddAnswerPage(questionId: faq.id, question: faq.question)));
                     },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(

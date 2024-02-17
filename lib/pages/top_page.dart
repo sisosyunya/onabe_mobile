@@ -4,8 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:onabe_mobile/domain/faq_converter.dart';
 import 'package:onabe_mobile/domain/models/answered_question.dart';
 import 'package:onabe_mobile/domain/models/un_answered_question.dart';
-import 'package:onabe_mobile/pages/answered_question_page.dart';
-import 'package:onabe_mobile/pages/un_answered_question.dart';
+import 'package:onabe_mobile/pages/add_answer_page.dart';
 import 'package:onabe_mobile/providers.dart';
 
 class TopPage extends ConsumerWidget {
@@ -39,13 +38,16 @@ class TopPage extends ConsumerWidget {
                           title: Text(specificFAQ.question.toString()),
                           onTap: () {
                             if (specificFAQ is AnsweredQuestion) {
-                              Navigator.of(context).push(MaterialPageRoute(
+                              showDialog(
+                                  context: context,
                                   builder: (context) =>
-                                      AnsweredQuestionPage(faq: specificFAQ)));
+                                      AnsweredQuestionDialog(faq: specificFAQ));
                             } else if (specificFAQ is UnansweredQuestion) {
-                              Navigator.of(context).push(MaterialPageRoute(
+                              showDialog(
+                                  context: context,
                                   builder: (context) =>
-                                      UnAnsweredQuestionPage(faq: specificFAQ)));
+                                      UnAnsweredQuestionDialog(
+                                          faq: specificFAQ));
                             }
                           },
                         ),
@@ -53,5 +55,68 @@ class TopPage extends ConsumerWidget {
                     },
                   )),
         ));
+  }
+}
+
+class AnsweredQuestionDialog extends StatelessWidget {
+  final AnsweredQuestion faq;
+
+  const AnsweredQuestionDialog({Key? key, required this.faq}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('回答がある質問'),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('質問：${faq.question}'),
+          const SizedBox(height: 16),
+          Text('回答：${faq.answer ?? ""}'),
+        ],
+      ),
+      actions: [
+        ElevatedButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: const Text('閉じる'),
+        ),
+      ],
+    );
+  }
+}
+
+class UnAnsweredQuestionDialog extends StatelessWidget {
+  final UnansweredQuestion faq;
+
+  const UnAnsweredQuestionDialog({Key? key, required this.faq})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text('質問：${faq.question}'),
+      content: const Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Text('質問：${faq.question}'),
+          SizedBox(height: 16),
+          Text('もし回答できる場合は、ぜひお願いします！'),
+        ],
+      ),
+      actions: [
+        ElevatedButton(
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) =>
+                    AddAnswerPage(questionId: faq.id, question: faq.question)));
+          },
+          child: const Text('回答する'),
+        ),
+      ],
+    );
   }
 }
