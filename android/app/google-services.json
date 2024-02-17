@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "982404418246",
+    "project_id": "onabe-9d673",
+    "storage_bucket": "onabe-9d673.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982404418246:android:2435dd6c13ca4f3df6e5c7",
+        "android_client_info": {
+          "package_name": "com.example.onabe_mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAlSnip-qbqZN28CEi4UcZsPWFb3I-yRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
