@@ -8,5 +8,4 @@ final faqProvider = FutureProvider<List<FAQ>>((ref) async {
   return faqService.fetchFAQs();
 });
 
-// テキスト入力の状態を管理するプロバイダ
-final textInputProvider = StateProvider<String>((ref) => "");
+final searchProvider = StateProvider<String>((ref) => '');
