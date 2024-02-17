@@ -5,6 +5,7 @@ import 'package:onabe_mobile/pages/top_page.dart';
 
 import 'firebase_options.dart';
 
+
 void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
