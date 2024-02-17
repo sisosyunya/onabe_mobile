@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:onabe_mobile/domain/faq_converter.dart';
+import 'package:onabe_mobile/domain/models/answered_question.dart';
+import 'package:onabe_mobile/domain/models/un_answered_question.dart';
+import 'package:onabe_mobile/pages/answered_question_page.dart';
+import 'package:onabe_mobile/pages/un_answered_question.dart';
 import 'package:onabe_mobile/providers.dart';
 
 class TopPage extends ConsumerWidget {
@@ -23,15 +27,17 @@ class TopPage extends ConsumerWidget {
                     final specificFAQ = convertFAQToSpecificType(faq);
                     return ListTile(
                       title: Text(specificFAQ.question.toString()),
-                      // onTap: () {
-                      //   // final specificFAQ = convertFAQToSpecificType(faq);
-                      //   // Navigator.push(
-                      //   //   context,
-                      //   //   MaterialPageRoute(
-                      //   //     builder: (context) => FAQPage(specificFAQ: specificFAQ),
-                      //   //   ),
-                      //   // );
-                      // },
+                      onTap: () {
+                        if (specificFAQ is AnsweredQuestion) {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  AnsweredQuestionPage(faq: specificFAQ)));
+                        } else if (specificFAQ is UnansweredQuestion) {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  UnAnsweredQuestionPage(faq: specificFAQ)));
+                        }
+                      },
                     );
                   },
                 )));

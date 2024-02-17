@@ -7,7 +7,7 @@ class AnsweredQuestion extends FAQ {
     required String answer,
     required String keyword,
     required String? createdAt,
-    required String answeredAt,
+    required String? answeredAt,
   }) : super(
           id: id,
           question: question,

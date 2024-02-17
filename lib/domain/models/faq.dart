@@ -17,12 +17,6 @@ class FAQ {
 
   factory FAQ.fromJson(Map<dynamic, dynamic> json) {
     return FAQ(
-      id: json['id'],
-      question: json['question'],
-      answer: json['answer'],
-      keyword: json['keyword'],
-      createdAt: json['created_at'],
-      answeredAt: json['answered_at'],
-    );
+        id: json['id'], question: json['question'], keyword: json['keyword']);
   }
 }
