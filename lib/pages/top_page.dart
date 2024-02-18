@@ -15,7 +15,6 @@ class TopPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final textInput = ref.watch(textInputProvider);
     final faqList = ref.watch(faqProvider);
     final searchQuery = ref.watch(searchQueryProvider);
 
@@ -52,6 +51,7 @@ class TopPage extends ConsumerWidget {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ListTile(
+                      // tileColor: Color(#e4f4fc),
                       leading: SvgPicture.asset(
                         'assets/images/wanko.svg',
                         width: 24,

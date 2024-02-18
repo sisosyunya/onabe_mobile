@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:onabe_mobile/pages/top_page.dart';
 
-// import 'package:flutter_cors/flutter_cors.dart';
-
+import 'color_schemes.g.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -22,7 +21,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'おなべモバイル',
       home: const TopPage(),
-      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.deepPurple),
+      theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
+      darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
       debugShowCheckedModeBanner: false,
     );
   }
