@@ -43,6 +43,7 @@ class TopPage extends ConsumerWidget {
               );
             }
             return ListView.builder(
+              reverse: true, 
               itemCount: filteredFAQs.length,
               itemBuilder: (context, index) {
                 final faq = filteredFAQs[index];
