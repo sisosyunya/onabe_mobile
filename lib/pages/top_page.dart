@@ -5,6 +5,7 @@ import 'package:onabe_mobile/domain/faq_converter.dart';
 import 'package:onabe_mobile/domain/models/answered_question.dart';
 import 'package:onabe_mobile/domain/models/un_answered_question.dart';
 import 'package:onabe_mobile/pages/add_answer_page.dart';
+import 'package:onabe_mobile/pages/components/search_appbar.dart';
 import 'package:onabe_mobile/providers.dart';
 
 class TopPage extends ConsumerWidget {
@@ -15,7 +16,7 @@ class TopPage extends ConsumerWidget {
     // final textInput = ref.watch(textInputProvider);
     final faqList = ref.watch(faqProvider);
     return Scaffold(
-        appBar: AppBar(title: const Text("おなべモバイル")),
+        appBar: SearchAppBar(),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: faqList.when(
