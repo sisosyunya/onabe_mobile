@@ -8,6 +8,7 @@ import 'package:onabe_mobile/pages/components/dialog/answered_question_dialog.da
 import 'package:onabe_mobile/pages/components/dialog/un_answered_question_dialog.dart';
 import 'package:onabe_mobile/pages/components/search_appbar.dart';
 import 'package:onabe_mobile/providers.dart';
+import 'package:onabe_mobile/service/faq_service.dart';
 
 class TopPage extends ConsumerWidget {
   const TopPage({super.key});
@@ -33,6 +34,15 @@ class TopPage extends ConsumerWidget {
           error: (error, stackTrace) => Text(error.toString()),
           data: (data) {
             final filteredFAQs = searchFAQs(searchQuery, data);
+            if (filteredFAQs.isEmpty) {
+              return Center(
+                child: ElevatedButton(
+                    onPressed: () {
+                      FAQService().postKeyword(context, searchQuery);
+                    },
+                    child: Text('$searchQueryについてもっと知りたい！')),
+              );
+            }
             return ListView.builder(
               itemCount: filteredFAQs.length,
               itemBuilder: (context, index) {

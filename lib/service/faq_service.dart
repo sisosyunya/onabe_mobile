@@ -38,6 +38,21 @@ class FAQService {
       showSnackBar(e.toString(), context);
     }
   }
+
+  Future<void> postKeyword(BuildContext context, String keyword) async {
+    try {
+      final response = await dio.post('http://3.112.223.9:8000/wordpost',
+          data: {'keyword': keyword, 'createdAt': DateTime.now().toString()});
+      if (response.statusCode == 200) {
+        showSnackBar('キーワードの追加に成功しました', context);
+      } else {
+        showSnackBar('キーワードの送信に失敗しました', context);
+      }
+    } catch (e) {
+      print(e.toString());
+      showSnackBar(e.toString(), context);
+    }
+  }
 }
 
 void showSnackBar(String message, BuildContext context) {
