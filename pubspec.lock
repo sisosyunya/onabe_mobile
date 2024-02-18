@@ -57,6 +57,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.6"
+  dio:
+    dependency: "direct main"
+    description:
+      name: dio
+      sha256: "797e1e341c3dd2f69f2dad42564a6feff3bfb87187d05abb93b9609e6f1645c3"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.4.0"
   fake_async:
     dependency: transitive
     description:
@@ -94,6 +102,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_cors:
+    dependency: "direct main"
+    description:
+      name: flutter_cors
+      sha256: b476126728cec276cc5c4de12a80c4d58c2f97f7d332916a011ba33c23c8d496
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
   flutter_hooks:
     dependency: "direct main"
     description:

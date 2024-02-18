@@ -16,7 +16,21 @@ class FAQ {
   });
 
   factory FAQ.fromJson(Map<dynamic, dynamic> json) {
-    return FAQ(
-        id: json['id'], question: json['question'], keyword: json['keyword']);
+    if (json['answer'] == null) {
+      return FAQ(
+        id: json['id'],
+        question: json['question'],
+        keyword: json['keyword'],
+      );
+    } else {
+      return FAQ(
+        id: json['id'],
+        question: json['question'],
+        answer: json['answer'],
+        keyword: json['keyword'],
+        createdAt: null,
+        answeredAt: null,
+      );
+    }
   }
 }

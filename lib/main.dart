@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:onabe_mobile/pages/top_page.dart';
 
+// import 'package:flutter_cors/flutter_cors.dart';
+
 import 'firebase_options.dart';
-
-
 
 void main() async {
   await Firebase.initializeApp(

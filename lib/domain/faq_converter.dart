@@ -10,7 +10,7 @@ FAQ convertFAQToSpecificType(FAQ faq) {
       answer: faq.answer!,
       keyword: faq.keyword,
       createdAt: faq.createdAt,
-      answeredAt: faq.answeredAt!,
+      answeredAt: faq.answeredAt,
     );
   } else {
     return UnansweredQuestion(

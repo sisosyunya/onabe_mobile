@@ -40,6 +40,8 @@ dependencies:
   http: ^1.1.0
   flutter_svg: ^2.0.9
   firebase_core: ^2.24.2
+  dio: ^5.4.0
+  flutter_cors: ^1.2.0
 
 
 dev_dependencies:
